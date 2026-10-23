@@ -1,0 +1,71 @@
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px;
+    width: 100%;
+    height: 80px;
+}
+
+.header {
+    background-color: var(--primary-color-header-footer);
+}
+
+.company-logo-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.header .burgermenu {
+    display: none;
+}
+
+/* Footer */
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 128px;
+    color: var(--secondary-font-color);
+    background-color: var(--primary-color-header-footer);
+}
+
+footer a{
+    color: var(--secondary-font-color);
+}
+
+.copyright-information{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.copyright-information img{
+    width: 20px;
+    height: 20px;
+}
+
+/* Navbar */
+
+.nav-bar{
+    position: sticky;
+    bottom: 0px;
+    height: 80px;
+    background-color: var(--primary-color-nav-bar);
+}
+
+.nav-bar ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.nav-bar li img{
+    width: 30px;
+    height: 30px;
+}

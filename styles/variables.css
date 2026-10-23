@@ -1,0 +1,13 @@
+:root{
+    --primary-color-header-footer: rgba(231, 108, 31, 1);
+    --primary-color-nav-bar: rgba(54, 53, 52, 1);
+    --primary-section-header-color: rgba(231, 108, 31, 1);
+    --primary-font-color: rgba(54, 53, 52, 1);
+    --secondary-font-color: rgba(255, 255, 255, 1);
+    --tertiary-font-color: rgba(231, 108, 31, 1);
+    --primary-dishes-color: rgba(253, 234, 220, 1);
+    --primary-button-color: rgba(255, 255, 255, 1);
+
+    --recommondation-background-color: rgba(250, 202, 172, 1);
+    --recommondation-details-color: rgba(114, 109, 109, 1);
+}
