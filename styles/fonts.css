@@ -75,6 +75,29 @@ html{
   font-family: "Palanquin Dark";
 }
 
+.current-rating{
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.amount-of-ratings{
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+h1{
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1.2;
+}
+
+.restaurant-information > p{
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 1.2;
+}
+
+
 /* footer */
 
 footer{

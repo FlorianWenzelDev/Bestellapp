@@ -21,6 +21,73 @@
     display: none;
 }
 
+/* Main */
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px 16px;
+}
+
+.herosection {
+    position: relative;
+    border-radius: 16px;
+    margin-bottom: 60px;
+    width: 100%;
+    height: 300px;
+    background-image: url("../assets/img/hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.herosection img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.herosection .hero-logo{
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, 50%);
+    border: 13px solid var(--primary-dishes-color);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.restaurant-information, .restaurant-information-styling-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.recommondation-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 5px;
+    border-radius: 4px;
+    width: 115px;
+    height: 32px;
+    background-color: var(--recommondation-background-color);
+}
+
+.current-rating, .restaurant-information > p, h1{
+    color: var(--primary-font-color);
+}
+
+.amount-of-ratings{
+    color: var(--recommondation-details-color);
+}
+
+.highlight{
+    color: var(--tertiary-font-color);
+}
+
 /* Footer */
 
 footer{
