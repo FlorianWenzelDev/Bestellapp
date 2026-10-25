@@ -27,12 +27,13 @@ main {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    padding: 24px 16px;
+    padding: 24px 0px;
 }
 
 .herosection {
     position: relative;
     border-radius: 16px;
+    padding: 0px 16px;
     margin-bottom: 60px;
     width: 100%;
     height: 300px;
@@ -63,6 +64,11 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 0px 16px;
+}
+
+.restaurant-information-styling-container{
+    padding: 0;
 }
 
 .recommondation-wrapper{
@@ -86,6 +92,13 @@ main {
 
 .highlight{
     color: var(--tertiary-font-color);
+}
+
+.dishes-of-category{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 16px;
 }
 
 /* Footer */

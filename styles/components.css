@@ -1,0 +1,71 @@
+/* Dish category header */
+
+.dish-category-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px -32px;
+    width: 100%;
+    height: 104px;
+    color: var(--secondary-font-color);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 40%,
+        rgba(231, 108, 31, 1) 40%,
+        rgba(231, 108, 31, 1) 100%
+    );
+}
+
+.dish-category-header img {
+    height: 60px;
+}
+
+/* Dish */
+
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    width: 100%;
+    color: var(--primary-font-color);
+    background-color: var(--primary-dishes-color);
+}
+
+.dish-card-image-wrapper {
+    width: 100%;
+    height: 86px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.dish-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom bottom;
+}
+
+.dish-information-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dish-card-purchase-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dish-card-btn{
+    border: 0px solid white;
+    border-radius: 12px;
+    width: auto;
+    height: 24px;
+    background-color: var(--primary-button-color);
+}

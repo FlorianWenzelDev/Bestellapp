@@ -97,6 +97,34 @@ h1{
     line-height: 1.2;
 }
 
+h2{
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dish-card-dish-name{
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.dish-card-ingredients{
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.dish-card-price{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.dish-card-btn{
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
 
 /* footer */
 
