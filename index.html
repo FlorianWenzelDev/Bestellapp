@@ -16,11 +16,11 @@
     <script src="./scripts/script.js"></script>
 </head>
 
-<body>
+<body onload="getFromLocalStorage(), renderMenuOnLoad()">
     <header class="header">
         <div class="company-logo-wrapper">
             <img src="./assets/icons/favicon_white.svg" alt="Company logo">
-            <img src="./assets/icons/Bestell_APP.svg" alt="Company logo name">
+            <img src="./assets/icons/bestell_app.svg" alt="Company logo name">
         </div>
         <img class="burgermenu" src="./assets/icons/bugermenu.svg" alt="Burgermenu logo">
     </header>
@@ -42,46 +42,8 @@
             </div>
             <p>The best of Burgers, Pizza, and Greens, all in one great place.</p>
         </section>
-        <section class="dish-category">
-            <header class="dish-category-header">
-                <img src="./assets/icons/Chanese 1.svg" alt="burgericon">
-                <h2 class="category-name">Burger</h2>
-            </header>
-            <ul class="dishes-of-category">
-                <li>
-                    <section class="dish-card">
-                        <div class="dish-card-image-wrapper">
-                            <img src="./assets/img/all_meat_burger.jpg" alt="">
-                        </div>
-                        <div class="dish-information-wrapper">
-                            <h3 class="dish-card-dish-name">Veggie mushroom black burger</h3>
-                            <p class="dish-card-ingredients">Chicken, Mozzarella, Gorgonzola, Fontina, Parmigiano
-                                Reggiano</p>
-                        </div>
-                        <div class="dish-card-purchase-wrapper">
-                            <p class="dish-card-price">23,50$</p>
-                            <button class="dish-card-btn">Add to basket</button>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="dish-card">
-                        <div class="dish-card-image-wrapper">
-                            <img src="./assets/img/all_meat_burger.jpg" alt="">
-                        </div>
-                        <div class="dish-information-wrapper">
-                            <h3 class="dish-card-dish-name">Veggie mushroom black burger</h3>
-                            <p class="dish-card-ingredients">Chicken, Mozzarella, Gorgonzola, Fontina, Parmigiano
-                                Reggiano</p>
-                        </div>
-                        <div class="dish-card-purchase-wrapper">
-                            <p class="dish-card-price">23,50$</p>
-                            <button class="dish-card-btn">Add to basket</button>
-                        </div>
-                    </section>
-                </li>
-            </ul>
-        </section>
+        <article id="menu">
+        </article>
     </main>
     <footer>
         <a href="./imprint.html">Imprint</a>
