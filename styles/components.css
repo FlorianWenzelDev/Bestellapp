@@ -69,3 +69,36 @@
     height: 24px;
     background-color: var(--primary-button-color);
 }
+
+/* basket article */
+
+.basket-article{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 20px;
+    width: 100%;
+    color: var(--primary-font-color);
+    background-color: var(--primary-basket-items-color);
+}
+
+.basket-article button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: var(--primary-basket-items-color);
+}
+
+.basket-article-styling-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-quantity-menu{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}

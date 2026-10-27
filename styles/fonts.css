@@ -126,6 +126,26 @@ h2{
   line-height: 1.2;
 }
 
+/* basket */
+
+.empty-basket-styling{
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.basket-article{
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.article-quantity-menu p,
+.change-quantity-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
 /* footer */
 
 footer{
