@@ -167,8 +167,15 @@ main {
 }
 
 .list-of-basket-articles{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     width: 100%;
     text-align: left;
+}
+
+.list-of-basket-articles:has(li){
+    color: orange;
 }
 
 /* Footer */

@@ -37,3 +37,36 @@ function renderCategoryDishes(categoryIndex) {
     }
     return categoryDishes;
 }
+
+function toogleBasket() {
+    let basketRef = document.getElementById("mobileBasket");
+    if(basketRef.open){
+      basketRef.close();
+    }
+    else{
+      basketRef.show();
+    }
+}
+
+function changeArticleQuantity(categoryIndex, dishIndex, countDirection) {
+  data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity += countDirection;
+  renderBasketArticles()
+}
+
+function changeArticleQuantityToZero(categoryIndex, dishIndex) {
+  data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity = 0;
+  renderBasketArticles()
+}
+
+function renderBasketArticles() {
+  let basketArticleListRef = document.getElementById("listOfBasketArticles");
+  basketArticleListRef.innerHTML = "";
+  for (let categoryIndex = 0; categoryIndex < data.currentMenu.length; categoryIndex++) {
+    for (let dishIndex = 0; dishIndex < data.currentMenu[categoryIndex].dishes.length; dishIndex++) {
+      if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity !== 0){
+        basketArticleListRef.innerHTML += getBasketArticle(categoryIndex, dishIndex);
+      } 
+    }
+  }
+}
+

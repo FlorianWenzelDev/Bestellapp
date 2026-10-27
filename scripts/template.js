@@ -26,8 +26,26 @@ function getDish(categoryIndex, dishIndex) {
                     </div>
                     <div class="dish-card-purchase-wrapper">
                         <p class="dish-card-price">${data.currentMenu[categoryIndex].dishes[dishIndex].dishPrice.toFixed(2)}€</p>
-                        <button class="dish-card-btn">Add to basket</button>
+                        <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1)" class="dish-card-btn">Add to basket</button>
                     </div>
                 </section>
             </li>`;
+}
+
+
+function getBasketArticle(categoryIndex, dishIndex) {
+return `<li class="basket-article">
+            <div class="basket-article-styling-container">
+                <p>${data.currentMenu[categoryIndex].dishes[dishIndex].dishName}</p>
+                <button onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})"><img src="./assets/icons/delete.svg" alt="trash can icon"></button>
+            </div>
+            <div class="basket-article-styling-container">
+                <div class="article-quantity-menu">
+                    <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, -1)"><p>-</p></button>
+                    <p class="article-quantity">${data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity}</p>
+                    <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1)"><p>+</p></button>
+                </div>
+                <p class="article-sum">23.80€</p>
+            </div>
+        </li>`
 }
