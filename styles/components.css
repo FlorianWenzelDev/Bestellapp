@@ -79,6 +79,7 @@
     padding: 16px;
     border-radius: 20px;
     width: 100%;
+    max-width: 450px;
     color: var(--primary-font-color);
     background-color: var(--primary-basket-items-color);
 }
@@ -94,7 +95,8 @@
 .basket-article-styling-container{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 16px;
 }
 
 .article-quantity-menu{
