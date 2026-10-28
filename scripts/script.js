@@ -64,9 +64,41 @@ function renderBasketArticles() {
   for (let categoryIndex = 0; categoryIndex < data.currentMenu.length; categoryIndex++) {
     for (let dishIndex = 0; dishIndex < data.currentMenu[categoryIndex].dishes.length; dishIndex++) {
       if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity !== 0){
-        basketArticleListRef.innerHTML += getBasketArticle(categoryIndex, dishIndex);
+        basketArticleListRef.innerHTML += getBasketArticle(categoryIndex, dishIndex, getDishSum(categoryIndex, dishIndex));
       } 
     }
   }
+  changeVisibilityOnBasketElements();
+  getBasketSum();
 }
 
+function changeVisibilityOnBasketElements() {
+  let basketArticleListRef = document.getElementById("listOfBasketArticles");
+  let emptyBasketStylingRef = document.querySelector("#emptyBasketStyling");
+  console.log(basketArticleListRef.querySelectorAll('li').length);
+  
+  if (basketArticleListRef.querySelectorAll('li').length > 0){
+    emptyBasketStylingRef.setAttribute("hidden", true);
+  }
+  else{
+    emptyBasketStylingRef.removeAttribute("hidden", false);
+  }
+}
+
+function getDishSum(categoryIndex, dishIndex) {
+  return data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity * data.currentMenu[categoryIndex].dishes[dishIndex].dishPrice;
+}
+
+function getBasketSum() {
+  let subtotalSumRef = document.getElementById("subtotalSum");
+  let subtotalSum = 0;
+  subtotalSumRef.innerText = "";
+  for (let categoryIndex = 0; categoryIndex < data.currentMenu.length; categoryIndex++) {
+    for (let dishIndex = 0; dishIndex < data.currentMenu[categoryIndex].dishes.length; dishIndex++) {
+      if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity !== 0){
+        subtotalSum += getDishSum(categoryIndex, dishIndex); 
+      } 
+    }
+  }
+  subtotalSumRef.innerText = `${subtotalSum.toFixed(2)}€`;
+}

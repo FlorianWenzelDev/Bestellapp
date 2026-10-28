@@ -146,6 +146,16 @@ h2{
   line-height: 1;
 }
 
+.pricing-table{
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.table-total{
+  font-size: 1.375rem;
+}
+
 /* footer */
 
 footer{

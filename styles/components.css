@@ -107,3 +107,28 @@
     width: 32px;
     text-align: center;
 }
+
+/* Pricing table */
+
+.pricing-table {
+    width: 100%;
+    max-width: 450px;
+    border-collapse: collapse;
+    color: var(--secondary-font-color);
+}
+
+.price-text, .position-text{
+    padding: 4px 0 4px 0;
+}
+
+.position-text{
+    text-align: left;
+}
+
+.price-text{
+    text-align: right;
+}
+
+.table-total{
+    border-top: 2px solid white;
+}

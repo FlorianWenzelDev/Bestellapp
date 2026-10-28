@@ -33,7 +33,7 @@ function getDish(categoryIndex, dishIndex) {
 }
 
 
-function getBasketArticle(categoryIndex, dishIndex) {
+function getBasketArticle(categoryIndex, dishIndex, dishSum) {
 return `<li class="basket-article">
             <div class="basket-article-styling-container">
                 <p>${data.currentMenu[categoryIndex].dishes[dishIndex].dishName}</p>
@@ -45,7 +45,7 @@ return `<li class="basket-article">
                     <p class="article-quantity">${data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity}</p>
                     <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1)"><p>+</p></button>
                 </div>
-                <p class="article-sum">23.80€</p>
+                <p class="article-sum">${dishSum.toFixed(2)}€</p>
             </div>
         </li>`
 }
