@@ -69,14 +69,14 @@ function renderBasketArticles() {
     }
   }
   changeVisibilityOnBasketElements();
-  getBasketSum();
+  renderBasketTable();
+  renderBasketButton();
 }
 
+//hier übergabewert visible on empty als true oder false und die variable einsetzen und dann übergeordneter baustein der mehrfahc aufruft mit entsprechender ID
 function changeVisibilityOnBasketElements() {
   let basketArticleListRef = document.getElementById("listOfBasketArticles");
   let emptyBasketStylingRef = document.querySelector("#emptyBasketStyling");
-  console.log(basketArticleListRef.querySelectorAll('li').length);
-  
   if (basketArticleListRef.querySelectorAll('li').length > 0){
     emptyBasketStylingRef.setAttribute("hidden", true);
   }
@@ -85,14 +85,26 @@ function changeVisibilityOnBasketElements() {
   }
 }
 
+function renderBasketTable() {
+  let subtotalSumRef = document.getElementById("subtotalSum");
+  let totalSumRef = document.getElementById("totalSum");
+  subtotalSumRef.innerText = "";
+  subtotalSumRef.innerText = `${getBasketSum().toFixed(2)}€`;
+  totalSumRef.innerText = `${getTotalSum().toFixed(2)}€`
+}
+
+function renderBasketButton() {
+  let basketButtonRef = document.getElementById("basketBuyButton");
+  basketButtonRef.innerText = "";
+  basketButtonRef.innerText = `Buy now (${getTotalSum().toFixed(2)}€)`;
+}
+
 function getDishSum(categoryIndex, dishIndex) {
   return data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity * data.currentMenu[categoryIndex].dishes[dishIndex].dishPrice;
 }
 
 function getBasketSum() {
-  let subtotalSumRef = document.getElementById("subtotalSum");
   let subtotalSum = 0;
-  subtotalSumRef.innerText = "";
   for (let categoryIndex = 0; categoryIndex < data.currentMenu.length; categoryIndex++) {
     for (let dishIndex = 0; dishIndex < data.currentMenu[categoryIndex].dishes.length; dishIndex++) {
       if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity !== 0){
@@ -100,5 +112,11 @@ function getBasketSum() {
       } 
     }
   }
-  subtotalSumRef.innerText = `${subtotalSum.toFixed(2)}€`;
+  return subtotalSum;
+}
+
+function getTotalSum() {
+  let deliveryFeeRef = document.getElementById("deliveryFee").innerText;
+  return parseFloat(deliveryFeeRef) + getBasketSum();
+
 }
