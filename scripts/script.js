@@ -60,12 +60,12 @@ function changeArticleQuantityToZero(categoryIndex, dishIndex) {
 }
 
 function renderBasket() {
+  changeElementVisibilityOnEmptyBasket("listOfBasketArticles", false);
   renderBasketArticles();
   renderBasketTable();
   changeBasketHeight();
   renderBasketButton();
   changeElementVisibilityOnEmptyBasket("emptyBasketStyling", true);
-  changeElementVisibilityOnEmptyBasket("listOfBasketArticles", false);
   changeElementVisibilityOnEmptyBasket("pricingTable", false);
   changeElementVisibilityOnEmptyBasket("basketBuyButton", false);
 }
@@ -75,12 +75,14 @@ function renderBasketArticles() {
   basketArticleListRef.innerHTML = "";
   for (let categoryIndex = 0; categoryIndex < data.currentMenu.length; categoryIndex++) {
     for (let dishIndex = 0; dishIndex < data.currentMenu[categoryIndex].dishes.length; dishIndex++) {
-      if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity !== 0){
-        basketArticleListRef.innerHTML += getBasketArticle(categoryIndex, dishIndex, getDishSum(categoryIndex, dishIndex));
+      if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity === 1){
+        basketArticleListRef.innerHTML += getBasketArticle(categoryIndex, dishIndex, getDishSum(categoryIndex, dishIndex), true);
+      }
+      else if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity >= 1){
+        basketArticleListRef.innerHTML += getBasketArticle(categoryIndex, dishIndex, getDishSum(categoryIndex, dishIndex), false);
       } 
     }
-  }
-  
+  } 
 }
 
 function changeElementVisibilityOnEmptyBasket(elementId, isVisibleOnEmpty) {
