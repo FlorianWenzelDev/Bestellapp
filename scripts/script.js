@@ -45,18 +45,29 @@ function toogleBasket() {
     }
     else{
       basketRef.show();
-      renderBasketArticles();
+      renderBasket();
     }
 }
 
 function changeArticleQuantity(categoryIndex, dishIndex, countDirection) {
   data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity += countDirection;
-  renderBasketArticles()
+  renderBasket();
 }
 
 function changeArticleQuantityToZero(categoryIndex, dishIndex) {
   data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity = 0;
-  renderBasketArticles()
+  renderBasket();
+}
+
+function renderBasket() {
+  renderBasketArticles();
+  renderBasketTable();
+  changeBasketHeight();
+  renderBasketButton();
+  changeElementVisibilityOnEmptyBasket("emptyBasketStyling", true);
+  changeElementVisibilityOnEmptyBasket("listOfBasketArticles", false);
+  changeElementVisibilityOnEmptyBasket("pricingTable", false);
+  changeElementVisibilityOnEmptyBasket("basketBuyButton", false);
 }
 
 function renderBasketArticles() {
@@ -69,21 +80,19 @@ function renderBasketArticles() {
       } 
     }
   }
-  changeVisibilityOnBasketElements();
-  renderBasketTable();
-  renderBasketButton();
-  changeBasketHeight();
+  
 }
 
-//hier übergabewert visible on empty als true oder false und die variable einsetzen und dann übergeordneter baustein der mehrfahc aufruft mit entsprechender ID
-function changeVisibilityOnBasketElements() {
+function changeElementVisibilityOnEmptyBasket(elementId, isVisibleOnEmpty) {
   let basketArticleListRef = document.getElementById("listOfBasketArticles");
-  let emptyBasketStylingRef = document.querySelector("#emptyBasketStyling");
+  let elementStylingRef = document.querySelector("#" + elementId);
+  console.log(basketArticleListRef.querySelectorAll('li').length);
+  
   if (basketArticleListRef.querySelectorAll('li').length > 0){
-    emptyBasketStylingRef.setAttribute("hidden", true);
+    elementStylingRef.hidden = isVisibleOnEmpty;
   }
   else{
-    emptyBasketStylingRef.removeAttribute("hidden", false);
+    elementStylingRef.hidden = !isVisibleOnEmpty;
   }
 }
 
@@ -135,5 +144,4 @@ function getBasketSum() {
 function getTotalSum() {
   let deliveryFeeRef = document.getElementById("deliveryFee").innerText;
   return parseFloat(deliveryFeeRef) + getBasketSum();
-
 }
