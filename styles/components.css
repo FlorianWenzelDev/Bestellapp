@@ -70,6 +70,10 @@
     background-color: var(--primary-button-color);
 }
 
+.highlight-btn-text{
+    color: var(--tertiary-font-color);
+}
+
 /* basket article */
 
 .basket-article{

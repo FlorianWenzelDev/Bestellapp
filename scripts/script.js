@@ -32,10 +32,49 @@ function renderCategoryHeader(categoryIndex) {
 function renderCategoryDishes(categoryIndex) {
     let categoryDishes = "";
     for (let dishIndex = 0; dishIndex < data.currentMenu[categoryIndex].dishes.length; dishIndex++) {
-        const dish = getDish(categoryIndex, dishIndex);
+        const dish = getDish(categoryIndex, dishIndex, getBtnTextDependingOnQuanityInBasket(categoryIndex, dishIndex));
         categoryDishes += dish;
     }
     return categoryDishes;
+}
+
+function renderDishElementOnChange(categoryIndex, dishIndex) {
+  changeDishBtnColorDependingOnQuanity(categoryIndex, dishIndex);
+  changeDishBtnTextOnQuantityChange(categoryIndex, dishIndex);
+}
+
+function changeDishBtnTextOnQuantityChange(categoryIndex, dishIndex) {
+  let elementRef = getDishElementByClassName(categoryIndex, dishIndex); 
+  elementRef.innerText = "";
+  elementRef.innerText = getBtnTextDependingOnQuanityInBasket(categoryIndex, dishIndex);
+}
+
+function changeDishBtnColorDependingOnQuanity(categoryIndex, dishIndex) {
+  let elementRef = getDishElementByClassName(categoryIndex, dishIndex); 
+  if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity > 0){
+    elementRef.classList.add("highlight-btn-text");
+  }
+  else{
+    elementRef.classList.remove("highlight-btn-text");
+  }
+}
+
+function getDishElementByClassName(categoryIndex, dishIndex) {
+  let classNameIndex = 0
+  let elementsRef = document.getElementsByClassName("dish-card-btn");
+  for (let elementIndex = 0; elementIndex < categoryIndex; elementIndex++) {
+    classNameIndex += data.currentMenu[categoryIndex].dishes.length;
+  }
+  return elementsRef[classNameIndex += dishIndex];  
+}
+
+function getBtnTextDependingOnQuanityInBasket(categoryIndex, dishIndex) {
+  if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity > 0){
+    return `Added ${data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity}`;
+  }
+  else{
+    return "Add to basket";
+  } 
 }
 
 function toogleBasket() {
@@ -78,7 +117,7 @@ function renderBasketArticles() {
       if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity === 1){
         basketArticleListRef.innerHTML += getBasketArticle(categoryIndex, dishIndex, getDishSum(categoryIndex, dishIndex), true);
       }
-      else if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity >= 1){
+      else if (data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity > 1){
         basketArticleListRef.innerHTML += getBasketArticle(categoryIndex, dishIndex, getDishSum(categoryIndex, dishIndex), false);
       } 
     }
@@ -87,9 +126,7 @@ function renderBasketArticles() {
 
 function changeElementVisibilityOnEmptyBasket(elementId, isVisibleOnEmpty) {
   let basketArticleListRef = document.getElementById("listOfBasketArticles");
-  let elementStylingRef = document.querySelector("#" + elementId);
-  console.log(basketArticleListRef.querySelectorAll('li').length);
-  
+  let elementStylingRef = document.querySelector("#" + elementId); 
   if (basketArticleListRef.querySelectorAll('li').length > 0){
     elementStylingRef.hidden = isVisibleOnEmpty;
   }

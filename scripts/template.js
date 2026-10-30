@@ -14,7 +14,7 @@ function getCategoryHeader(index) {
                 </header>`;
 }
 
-function getDish(categoryIndex, dishIndex) {
+function getDish(categoryIndex, dishIndex, btnText) {
   return `    <li>
                 <section class="dish-card">
                     <div class="dish-card-image-wrapper">
@@ -26,7 +26,8 @@ function getDish(categoryIndex, dishIndex) {
                     </div>
                     <div class="dish-card-purchase-wrapper">
                         <p class="dish-card-price">${data.currentMenu[categoryIndex].dishes[dishIndex].dishPrice.toFixed(2)}€</p>
-                        <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1)" class="dish-card-btn">Add to basket</button>
+                        <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1), renderDishElementOnChange(${categoryIndex}, ${dishIndex})" 
+                        class="dish-card-btn ${data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity > 0 ? 'highlight-btn-text' : ""}">${btnText}</button>
                     </div>
                 </section>
             </li>`;
@@ -34,7 +35,7 @@ function getDish(categoryIndex, dishIndex) {
 
 
 function getBasketArticle(categoryIndex, dishIndex, dishSum, isHiddenOnQuantityOne) {
-return `<li class="basket-article">
+return `<li class="basket-article" onclick="renderDishElementOnChange(${categoryIndex}, ${dishIndex})">
             <div class="basket-article-styling-container">
                 <p>${data.currentMenu[categoryIndex].dishes[dishIndex].dishName}</p>
                 <button onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})" ${isHiddenOnQuantityOne ? 'hidden' : ""}><img src="./assets/icons/delete.svg" alt="trash can icon"></button>
