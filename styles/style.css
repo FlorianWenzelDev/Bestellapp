@@ -122,7 +122,7 @@ main {
     top: 0;
     left: 0;
     border: 0;
-    padding: 20px;
+    padding: 48px 20px;
     width: 100%;
     height: calc(100dvh - 80px);
     text-align: center;
@@ -138,15 +138,21 @@ main {
 
 .basket-styling-container{
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
+    max-width: 450px;
 }
 
 .close-btn{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 24px;
+    right: 24px;
     border: 0;
     padding: 0;
     width: 16px;
@@ -170,10 +176,13 @@ main {
 .list-of-basket-articles{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
     width: 100%;
+    max-width: 450px;
     text-align: left;
+    overflow: auto;
+    scrollbar-gutter: stable;
 }
 
 .basket-btn{
@@ -184,6 +193,37 @@ main {
     height: 48px;
     color: var(--secondary-font-color);
     background-color: var(--basket-button-color);
+}
+
+/* Basketscrollbar */
+
+
+.list-of-basket-articles {
+  --sb-track-color: #363534;
+  --sb-thumb-color: #fdeadc;
+  --sb-size: 6px;
+}
+
+.list-of-basket-articles::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+.list-of-basket-articles::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+.list-of-basket-articles::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .list-of-basket-articles{
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
 }
 
 /* Footer */

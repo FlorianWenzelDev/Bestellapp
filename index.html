@@ -16,7 +16,7 @@
     <script src="./scripts/script.js"></script>
 </head>
 
-<body onload="getFromLocalStorage(), renderMenuOnLoad()">
+<body onload="getFromLocalStorage(), renderMenuOnLoad()" onresize="changeBasketHeight()">
     <header class="header">
         <div class="company-logo-wrapper">
             <img src="./assets/icons/favicon_white.svg" alt="Company logo">
@@ -45,32 +45,33 @@
         <article id="menu">
         </article>
         <dialog id="mobileBasket" class="basket">
-            <div class="basket-styling-container">
-                <button onclick="toogleBasket()" class="close-btn"><img src="./assets/icons/close.svg" alt="close icon"></button>
-            </div>
+            <button onclick="toogleBasket()" class="close-btn"><img src="./assets/icons/close.svg"
+                    alt="close icon"></button>
             <h2>Your Basket</h2>
-            <div id="emptyBasketStyling" class="empty-basket-styling">
-                <p>Nothing here yet. <br> Go ahead and choose something delicious!</p>
-                <img src="./assets/icons/shopping_cart_beige.svg" alt="shopping cart icon">
+            <div class="basket-styling-container">
+                <div id="emptyBasketStyling" class="empty-basket-styling">
+                    <p>Nothing here yet. <br> Go ahead and choose something delicious!</p>
+                    <img src="./assets/icons/shopping_cart_beige.svg" alt="shopping cart icon">
+                </div>
+                <ul id="listOfBasketArticles" class="list-of-basket-articles">
+                </ul>
+                <table class="pricing-table">
+                    <tbody>
+                        <tr>
+                            <td class="position-text">Subtotal</td>
+                            <td id="subtotalSum" class="price-text">23.10€</td>
+                        </tr>
+                        <tr>
+                            <td class="position-text">Delivery fee</td>
+                            <td id="deliveryFee" class="price-text">4.90€</td>
+                        </tr>
+                        <tr>
+                            <td class="position-text table-total">Total</td>
+                            <td id="totalSum" class="price-text table-total"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <ul id="listOfBasketArticles" class="list-of-basket-articles">
-            </ul>
-            <table class="pricing-table">
-                <tbody>
-                    <tr>
-                        <td class="position-text">Subtotal</td>
-                        <td id="subtotalSum" class="price-text">23.10€</td>
-                    </tr>
-                    <tr>
-                        <td class="position-text">Delivery fee</td>
-                        <td id="deliveryFee" class="price-text">4.90€</td>
-                    </tr>
-                    <tr>
-                        <td class="position-text table-total">Total</td>
-                        <td id="totalSum" class="price-text table-total"></td>
-                    </tr>
-                </tbody>
-            </table>
             <button id="basketBuyButton" class="basket-btn">Buy now</button>
         </dialog>
     </main>

@@ -45,6 +45,7 @@ function toogleBasket() {
     }
     else{
       basketRef.show();
+      renderBasketArticles();
     }
 }
 
@@ -71,6 +72,7 @@ function renderBasketArticles() {
   changeVisibilityOnBasketElements();
   renderBasketTable();
   renderBasketButton();
+  changeBasketHeight();
 }
 
 //hier übergabewert visible on empty als true oder false und die variable einsetzen und dann übergeordneter baustein der mehrfahc aufruft mit entsprechender ID
@@ -97,6 +99,21 @@ function renderBasketButton() {
   let basketButtonRef = document.getElementById("basketBuyButton");
   basketButtonRef.innerText = "";
   basketButtonRef.innerText = `Buy now (${getTotalSum().toFixed(2)}€)`;
+}
+
+function changeBasketHeight() {
+  let basketArticleListRef = document.getElementById("listOfBasketArticles");
+  let basketArticles = Array.from(basketArticleListRef.children);
+  let basketMaxHeight = 0;
+  if (basketArticleListRef.querySelectorAll('li').length > 3){
+    for (let basketArticleIndex = 0; basketArticleIndex < 3; basketArticleIndex++) {
+      basketMaxHeight += basketArticles[basketArticleIndex].offsetHeight;     
+    }
+    basketArticleListRef.style.maxHeight = `${basketMaxHeight + 32}px`;
+  }
+  else{
+    basketArticleListRef.style.maxHeight = "auto";
+  }
 }
 
 function getDishSum(categoryIndex, dishIndex) {
