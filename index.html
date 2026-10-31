@@ -16,7 +16,7 @@
     <script src="./scripts/script.js"></script>
 </head>
 
-<body onload="getFromLocalStorage(), renderMenuOnLoad()" onresize="changeBasketHeight()">
+<body onload="getFromLocalStorage(), renderMenu()" onresize="changeBasketHeight()">
     <header class="header">
         <div class="company-logo-wrapper">
             <img src="./assets/icons/favicon_white.svg" alt="Company logo">
@@ -72,7 +72,14 @@
                     </tbody>
                 </table>
             </div>
-            <button id="basketBuyButton" class="basket-btn">Buy now</button>
+            <button id="basketBuyButton" class="basket-btn" onclick="openDialog(), resetQuantityForAllElements()">Buy now</button>
+        </dialog>
+        <dialog id="orderConfirmation" class="order-confirmation" closedby="any">
+           <button onclick="closeDialog()" class="close-btn"><img src="./assets/icons/close.svg"
+                    alt="close icon"></button> 
+                    <img src="./assets/img/food_truck.png" alt="orange food truck with an burgerlogo on it">
+                    <p class="order-confirmation-bold-text">Order confirmed!</p>
+                    <p>Your food is on the way!</p>
         </dialog>
     </main>
     <footer>

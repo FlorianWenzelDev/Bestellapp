@@ -38,17 +38,17 @@ main {
     height: 340px;
 }
 
-.hero-img-wrapper{
+.hero-img-wrapper {
     border-radius: 16px;
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.herosection .hero-img{
+.herosection .hero-img {
     height: 100%;
     object-fit: cover;
-    object-position: 20% 20%; 
+    object-position: 20% 20%;
     transform-origin: 20% 100%;
     scale: 1.5;
 }
@@ -58,7 +58,7 @@ main {
     object-fit: cover;
 }
 
-.herosection .hero-logo{
+.herosection .hero-logo {
     position: absolute;
     left: 50%;
     bottom: 0%;
@@ -69,7 +69,8 @@ main {
     height: 120px;
 }
 
-.restaurant-information, .restaurant-information-styling-container{
+.restaurant-information,
+.restaurant-information-styling-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,11 +78,11 @@ main {
     padding: 0px 16px;
 }
 
-.restaurant-information-styling-container{
+.restaurant-information-styling-container {
     padding: 0;
 }
 
-.recommondation-wrapper{
+.recommondation-wrapper {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -92,19 +93,21 @@ main {
     background-color: var(--recommondation-background-color);
 }
 
-.current-rating, .restaurant-information > p, h1{
+.current-rating,
+.restaurant-information > p,
+h1 {
     color: var(--primary-font-color);
 }
 
-.amount-of-ratings{
+.amount-of-ratings {
     color: var(--recommondation-details-color);
 }
 
-.highlight{
+.highlight {
     color: var(--tertiary-font-color);
 }
 
-.dishes-of-category{
+.dishes-of-category {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -127,16 +130,16 @@ main {
     height: calc(100dvh - 80px);
     text-align: center;
     color: var(--primary-basket-items-color);
-    background-color: var(--primary-color-nav-bar);
+    background-color: var(--primary-basket-dialog-color);
 }
 
-.basket:open{
+.basket:open {
     display: flex;
     overflow: hidden;
-    overscroll-behavior: contain; 
+    overscroll-behavior: contain;
 }
 
-.basket-styling-container{
+.basket-styling-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -146,7 +149,7 @@ main {
     max-width: 450px;
 }
 
-.close-btn{
+.close-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,10 +160,10 @@ main {
     padding: 0;
     width: 16px;
     height: 16px;
-    background-color: var(--primary-color-nav-bar);
+    background-color: var(--primary-basket-dialog-color);
 }
 
-.empty-basket-styling{
+.empty-basket-styling {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -168,12 +171,12 @@ main {
     padding-top: 24px;
 }
 
-.empty-basket-styling img{
+.empty-basket-styling img {
     width: 120px;
     height: 120px;
 }
 
-.list-of-basket-articles{
+.list-of-basket-articles {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -185,7 +188,7 @@ main {
     scrollbar-gutter: stable;
 }
 
-.basket-btn{
+.basket-btn {
     padding: 12px 24px;
     border: unset;
     border-radius: 24px;
@@ -197,38 +200,60 @@ main {
 
 /* Basketscrollbar */
 
-
 .list-of-basket-articles {
-  --sb-track-color: #363534;
-  --sb-thumb-color: #fdeadc;
-  --sb-size: 6px;
+    --sb-track-color: #363534;
+    --sb-thumb-color: #fdeadc;
+    --sb-size: 6px;
 }
 
 .list-of-basket-articles::-webkit-scrollbar {
-  width: var(--sb-size)
+    width: var(--sb-size);
 }
 
 .list-of-basket-articles::-webkit-scrollbar-track {
-  background: var(--sb-track-color);
-  border-radius: 3px;
+    background: var(--sb-track-color);
+    border-radius: 3px;
 }
 
 .list-of-basket-articles::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color);
-  border-radius: 3px;
-  
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
 }
 
 @supports not selector(::-webkit-scrollbar) {
-  .list-of-basket-articles{
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
-  }
+    .list-of-basket-articles {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+/* Oder confirmation */
+
+.order-confirmation {
+    margin: auto;
+    padding: 48px 16px 16px 16px;
+    border: 0;
+    border-radius: 16px;
+    color: var(--primary-basket-items-color);
+    background-color: var(--primary-basket-dialog-color);
+}
+
+.order-confirmation:open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-confirmation::backdrop {
+    background-color: rgba(2, 4, 7, 0.6);
+}
+
+.order-confirmation img {
+    width: 80px;
 }
 
 /* Footer */
 
-footer{
+footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -239,43 +264,44 @@ footer{
     background-color: var(--primary-color-header-footer);
 }
 
-footer a{
+footer a {
     color: var(--secondary-font-color);
 }
 
-.copyright-information{
+.copyright-information {
     display: flex;
     align-items: center;
     gap: 4px;
 }
 
-.copyright-information img{
+.copyright-information img {
     width: 20px;
     height: 20px;
 }
 
 /* Navbar */
 
-.nav-bar{
+.nav-bar {
     position: sticky;
     bottom: 0px;
     height: 80px;
     background-color: var(--primary-color-nav-bar);
 }
 
-.nav-bar ul{
+.nav-bar ul {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     height: 100%;
 }
 
-.nav-bar li img, .nav-bar button{
+.nav-bar li img,
+.nav-bar button {
     width: 30px;
     height: 30px;
 }
 
-.nav-bar button{
+.nav-bar button {
     border: 0px solid var(--primary-color-nav-bar);
     padding: 0;
     background-color: var(--primary-color-nav-bar);
