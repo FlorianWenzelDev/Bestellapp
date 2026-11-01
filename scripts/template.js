@@ -38,11 +38,11 @@ function getBasketArticle(categoryIndex, dishIndex, dishSum, isHiddenOnQuantityO
 return `<li class="basket-article" onclick="renderDishElementOnChange(${categoryIndex}, ${dishIndex})">
             <div class="basket-article-styling-container">
                 <p>${data.currentMenu[categoryIndex].dishes[dishIndex].dishName}</p>
-                <button onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})" ${isHiddenOnQuantityOne ? 'hidden' : ""}><img src="./assets/icons/delete.svg" alt="trash can icon"></button>
+                <button onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})" ${isHiddenOnQuantityOne ? 'hidden' : ""} class="delete-btn"></button>
             </div>
             <div class="basket-article-styling-container">
                 <div class="article-quantity-menu">
-                    <button onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})" ${isHiddenOnQuantityOne ? "" : 'hidden'}><img src="./assets/icons/delete.svg" alt="trash can icon"></button>
+                    <button onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})" ${isHiddenOnQuantityOne ? "" : 'hidden'} class="delete-btn"></button>
                     <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, -1)" ${isHiddenOnQuantityOne ? 'hidden' : ""}><p>-</p></button>
                     <p class="article-quantity">${data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity}</p>
                     <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1)"><p>+</p></button>

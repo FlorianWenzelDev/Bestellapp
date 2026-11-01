@@ -49,20 +49,20 @@
     object-position: bottom bottom;
 }
 
-.dish-information-wrapper{
+.dish-information-wrapper {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.dish-card-purchase-wrapper{
+.dish-card-purchase-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.dish-card-btn{
+.dish-card-btn {
     border: 0px solid white;
     border-radius: 12px;
     width: auto;
@@ -70,13 +70,13 @@
     background-color: var(--primary-button-color);
 }
 
-.highlight-btn-text{
+.highlight-btn-text {
     color: var(--tertiary-font-color);
 }
 
 /* basket article */
 
-.basket-article{
+.basket-article {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -88,7 +88,7 @@
     background-color: var(--primary-basket-items-color);
 }
 
-.basket-article button{
+.basket-article button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,26 +96,43 @@
     background-color: var(--primary-basket-items-color);
 }
 
-.basket-article-styling-container{
+.basket .delete-btn{
+    padding: 0px 2px;
+    width: 20px;
+    height: 24px;
+    background-image: url(../assets/icons/delete.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-position: bottom center;
+}
+
+.delete-btn:hover{
+    background-image: url(../assets/icons/delete_orange.svg);
+    background-color: var(--primary-button-color);
+    border-radius: 4px;
+}
+
+.basket-article-styling-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 16px;
 }
 
-.article-quantity-menu{
+.article-quantity-menu {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    width: 50px;
+
 }
 
-.article-quantity-menu button{
-    padding: 0;
-    height: 100%;
+.article-quantity-menu button {
+    padding: 0 2px;
+    height: 24px;
 }
 
-.article-quantity{
+.article-quantity {
     min-width: 24px;
     text-align: center;
 }
@@ -129,18 +146,19 @@
     color: var(--secondary-font-color);
 }
 
-.price-text, .position-text{
+.price-text,
+.position-text {
     padding: 4px 0 4px 0;
 }
 
-.position-text{
+.position-text {
     text-align: left;
 }
 
-.price-text{
+.price-text {
     text-align: right;
 }
 
-.table-total{
+.table-total {
     border-top: 2px solid white;
 }
