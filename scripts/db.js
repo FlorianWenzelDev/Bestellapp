@@ -62,7 +62,7 @@ let menu = [
     {
         "dishImg": "pizza_funghi.jpg",
         "dishImgAlt": "a pizza with onion, olives, mushrooms and cheese",
-        "dishName": "Pizza funghi",
+        "dishName": "Pizza Funghi",
         "dishIngredients": "Red onion, Olives, Button Mushrooms, Mozzarella",
         "dishPrice": 12.2,
         "dishBasketQuantity": 0,
