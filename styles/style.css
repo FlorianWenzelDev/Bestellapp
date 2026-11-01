@@ -306,3 +306,9 @@ footer a {
     padding: 0;
     background-color: var(--primary-color-nav-bar);
 }
+
+/* Impressum */
+
+.impressum-main{
+    padding: 48px;
+}
