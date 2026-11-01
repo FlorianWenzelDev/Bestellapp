@@ -44,7 +44,7 @@
         </section>
         <article id="menu">
         </article>
-        <dialog id="mobileBasket" class="basket">
+        <section hidden id="mobileBasket" class="basket">
             <button onclick="toogleBasket()" class="close-btn"><img src="./assets/icons/close.svg"
                     alt="close icon"></button>
             <h2>Your Basket</h2>
@@ -73,7 +73,7 @@
                 </table>
             </div>
             <button id="basketBuyButton" class="basket-btn" onclick="openDialog(), resetQuantityForAllElements()">Buy now</button>
-        </dialog>
+        </section>
         <dialog id="orderConfirmation" class="order-confirmation" closedby="any">
            <button onclick="closeDialog()" class="close-btn"><img src="./assets/icons/close.svg"
                     alt="close icon"></button> 

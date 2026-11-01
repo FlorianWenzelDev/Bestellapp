@@ -117,7 +117,7 @@ h1 {
 /* Basket */
 
 .basket {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
@@ -133,8 +133,7 @@ h1 {
     background-color: var(--primary-basket-dialog-color);
 }
 
-.basket:open {
-    display: flex;
+.basket:not(:has(hidden)) {
     overflow: hidden;
     overscroll-behavior: contain;
 }
@@ -241,9 +240,13 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
+    overscroll-behavior: contain;
 }
 
 .order-confirmation::backdrop {
+    overflow: hidden;
+    overscroll-behavior: contain;
     background-color: rgba(2, 4, 7, 0.6);
 }
 
@@ -284,6 +287,7 @@ footer a {
 .nav-bar {
     position: sticky;
     bottom: 0px;
+    z-index: 10;
     height: 80px;
     background-color: var(--primary-color-nav-bar);
 }
@@ -309,6 +313,6 @@ footer a {
 
 /* Impressum */
 
-.impressum-main{
+.impressum-main {
     padding: 48px;
 }

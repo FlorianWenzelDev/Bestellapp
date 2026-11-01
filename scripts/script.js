@@ -81,12 +81,8 @@ function getBtnTextDependingOnQuanityInBasket(categoryIndex, dishIndex) {
 
 function toogleBasket() {
   let basketRef = document.getElementById("mobileBasket");
-  if (basketRef.open) {
-    basketRef.close();
-  } else {
-    basketRef.show();
-    renderBasket();
-  }
+  basketRef.hidden = !basketRef.hidden;
+  renderBasket();
 }
 
 function changeArticleQuantity(categoryIndex, dishIndex, countDirection) {
