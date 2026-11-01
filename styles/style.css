@@ -299,38 +299,63 @@ footer a {
     height: 100%;
 }
 
-.nav-bar li, .nav-bar a{
+.nav-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    height: 30px;
+    padding: 4px;
+    width: 34px;
+    height: 34px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: content-box;
 }
 
-.nav-bar img,
-.nav-bar button {
-    width: 30px;
-    height: 30px;
+.nav-link:hover {
+    border-radius: 8px;
+    background-color: var(--primary-button-color);
 }
 
-.nav-bar button {
+.nav-basket-btn {
+    position: relative;
     border: 0px solid var(--primary-color-nav-bar);
-    padding: 0;
+    background-image: url(../assets/icons/shopping_cart_white.svg);
     background-color: var(--primary-color-nav-bar);
 }
 
-.nav-basket-btn{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    
+.home-link{
+    background-image: url(../assets/icons/home_white.svg);
 }
 
-.amount-in-basket{
+.home-link:hover{
+    background-image: url(../assets/icons/home_orange.svg);
+}
+
+.person-link {
+    background-image: url(../assets/icons/person.svg);
+}
+
+.person-link:hover {
+    background-image: url(../assets/icons/person_orange.svg);
+}
+
+.app-link{
+    background-image: url(../assets/icons/favicon_white.svg);
+}
+
+.app-link:hover{
+    background-image: url(../assets/icons/favicon_orange.svg);
+}
+
+.nav-basket-btn:hover, .nav-basket-btn.articles-in-basket{
+    background-image: url(../assets/icons/shopping_cart.svg);
+}
+
+.amount-in-basket {
     display: none;
 }
 
-.articles-in-basket .amount-in-basket{
+.articles-in-basket .amount-in-basket {
     display: unset;
     position: absolute;
     top: -15px;

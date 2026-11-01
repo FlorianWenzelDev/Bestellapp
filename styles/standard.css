@@ -16,3 +16,7 @@ ul{
 [hidden]{
     display: none !important; 
 }
+
+button:hover{
+    cursor: pointer;
+}
