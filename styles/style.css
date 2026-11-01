@@ -299,7 +299,15 @@ footer a {
     height: 100%;
 }
 
-.nav-bar li img,
+.nav-bar li, .nav-bar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.nav-bar img,
 .nav-bar button {
     width: 30px;
     height: 30px;
@@ -309,6 +317,29 @@ footer a {
     border: 0px solid var(--primary-color-nav-bar);
     padding: 0;
     background-color: var(--primary-color-nav-bar);
+}
+
+.nav-basket-btn{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    
+}
+
+.amount-in-basket{
+    display: none;
+}
+
+.articles-in-basket .amount-in-basket{
+    display: unset;
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    border-radius: 12px;
+    width: 24px;
+    height: 24px;
+    color: var(--tertiary-font-color);
+    background-color: var(--primary-dishes-color);
 }
 
 /* Impressum */

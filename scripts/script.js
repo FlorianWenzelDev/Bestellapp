@@ -104,6 +104,7 @@ function renderBasket() {
   changeElementVisibilityOnEmptyBasket("emptyBasketStyling", true);
   changeElementVisibilityOnEmptyBasket("pricingTable", false);
   changeElementVisibilityOnEmptyBasket("basketBuyButton", false);
+  renderBasketButton();
 }
 
 function renderBasketArticles() {
@@ -145,9 +146,9 @@ function renderBasketButton() {
 }
 
 function changeBasketHeight() {
-let basketArticleListRef = document.getElementById("listOfBasketArticles");
-let basketArticles = Array.from(basketArticleListRef.children);
-let basketMaxHeight = 0;
+  let basketArticleListRef = document.getElementById("listOfBasketArticles");
+  let basketArticles = Array.from(basketArticleListRef.children);
+  let basketMaxHeight = 0;
   if (basketArticleListRef.querySelectorAll("li").length > 3) {
     for (let basketArticleIndex = 0; basketArticleIndex < 3; basketArticleIndex++) {
       basketMaxHeight += basketArticles[basketArticleIndex].offsetHeight;
@@ -177,6 +178,32 @@ function getBasketSum() {
 function getTotalSum() {
   let deliveryFeeRef = document.getElementById("deliveryFee").innerText;
   return parseFloat(deliveryFeeRef) + getBasketSum();
+}
+
+function renderBasketButton() {
+  let btnRef = document.getElementById("basketBtn");
+  let amountRef = document.getElementById("amountInBasket");
+  let amountInBasket = getQuantityInBasket();
+  if (amountInBasket !== 0) {
+    amountRef.innerText = amountInBasket;
+    btnRef.classList.add("articles-in-basket");
+  }
+  else{
+    btnRef.classList.remove("articles-in-basket");
+  }
+}
+
+function getQuantityInBasket() {
+  let totalAmount = 0;
+  for (let categoryIndex = 0; categoryIndex < data.currentMenu.length; categoryIndex++) {
+    for (let dishIndex = 0; dishIndex < data.currentMenu[categoryIndex].dishes.length; dishIndex++) {
+      totalAmount += data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity;
+    }
+  }
+  if (totalAmount > 9) {
+    totalAmount = "9+";
+  }
+  return totalAmount;
 }
 
 // Order confirmation

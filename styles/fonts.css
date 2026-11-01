@@ -176,3 +176,11 @@ h2{
 footer{
   font-size: 1.125rem;
 }
+
+/* Navbar */
+
+.amount-in-basket{
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
