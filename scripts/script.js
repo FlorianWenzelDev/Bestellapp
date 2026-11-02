@@ -155,7 +155,7 @@ function changeBasketHeight() {
   let basketArticleListRef = document.getElementById("listOfBasketArticles");
   let basketArticles = Array.from(basketArticleListRef.children);
   let basketMaxHeight = 0;
-  if (basketArticleListRef.querySelectorAll("li").length > 3) {
+  if (basketArticleListRef.querySelectorAll("li").length >= 3) {
     for (let basketArticleIndex = 0; basketArticleIndex < 3; basketArticleIndex++) {
       basketMaxHeight += basketArticles[basketArticleIndex].offsetHeight;
     }
