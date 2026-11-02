@@ -24,6 +24,7 @@ function renderMenu() {
   for (let index = 0; index < data.currentMenu.length; index++) {
     restaurantSite.innerHTML += getDishCategory(renderCategoryHeader(index), renderCategoryDishes(index));
   }
+  restaurantSite.innerHTML += getBasket();
 }
 
 function renderCategoryHeader(categoryIndex) {
@@ -79,9 +80,15 @@ function getBtnTextDependingOnQuanityInBasket(categoryIndex, dishIndex) {
 
 //Basket
 
-function toogleBasket() {
+function toggleBasket() {
   let basketRef = document.getElementById("mobileBasket");
   basketRef.hidden = !basketRef.hidden;
+  if (!basketRef.hidden){
+    basketRef.classList.add("openend");
+  }
+  else{
+    basketRef.classList.remove("openend");
+  }
   renderBasket();
 }
 
@@ -96,15 +103,14 @@ function changeArticleQuantityToZero(categoryIndex, dishIndex) {
 }
 
 function renderBasket() {
-  changeElementVisibilityOnEmptyBasket("listOfBasketArticles", false);
   renderBasketArticles();
   renderBasketTable();
   changeBasketHeight();
   renderBasketButton();
+  changeElementVisibilityOnEmptyBasket("listOfBasketArticles", false);
   changeElementVisibilityOnEmptyBasket("emptyBasketStyling", true);
   changeElementVisibilityOnEmptyBasket("pricingTable", false);
   changeElementVisibilityOnEmptyBasket("basketBuyButton", false);
-  renderBasketButton();
 }
 
 function renderBasketArticles() {
@@ -187,8 +193,7 @@ function renderBasketButton() {
   if (amountInBasket !== 0) {
     amountRef.innerText = amountInBasket;
     btnRef.classList.add("articles-in-basket");
-  }
-  else{
+  } else {
     btnRef.classList.remove("articles-in-basket");
   }
 }
@@ -204,6 +209,20 @@ function getQuantityInBasket() {
     totalAmount = "9+";
   }
   return totalAmount;
+}
+
+function adaptAttributesDependingOnScreenSize() {
+  let basketRef = document.getElementById("mobileBasket");
+  if (body.offsetWidth >= 1024) {
+    basketRef.hidden = false;
+    basketRef.classList.remove("openend");
+  }
+  else if (body.offsetWidth < 1024 && basketRef.hidden === false && basketRef.classList.contains("openend")){
+    basketRef.hidden = false;
+  }
+  else{
+    basketRef.hidden = true;
+  }
 }
 
 // Order confirmation
@@ -224,6 +243,6 @@ function resetQuantityForAllElements() {
       data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity = 0;
     }
   }
-  renderBasket();
   renderMenu();
+  renderBasket();
 }

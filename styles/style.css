@@ -323,11 +323,11 @@ footer a {
     background-color: var(--primary-color-nav-bar);
 }
 
-.home-link{
+.home-link {
     background-image: url(../assets/icons/home_white.svg);
 }
 
-.home-link:hover{
+.home-link:hover {
     background-image: url(../assets/icons/home_orange.svg);
 }
 
@@ -339,15 +339,16 @@ footer a {
     background-image: url(../assets/icons/person_orange.svg);
 }
 
-.app-link{
+.app-link {
     background-image: url(../assets/icons/favicon_white.svg);
 }
 
-.app-link:hover{
+.app-link:hover {
     background-image: url(../assets/icons/favicon_orange.svg);
 }
 
-.nav-basket-btn:hover, .nav-basket-btn.articles-in-basket{
+.nav-basket-btn:hover,
+.nav-basket-btn.articles-in-basket {
     background-image: url(../assets/icons/shopping_cart.svg);
 }
 
@@ -371,4 +372,90 @@ footer a {
 
 .impressum-main {
     padding: 48px;
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        padding-top: 0;
+    }
+
+    .herosection {
+        padding: 0px 0px;
+        height: 500px;
+    }
+
+    .hero-img-wrapper {
+        height: 500px;
+        border-radius: 0px;
+    }
+
+    .restaurant-information-styling-container {
+        flex-direction: row-reverse;
+        align-items: baseline;
+        gap: 32px;
+    }
+
+    .restaurant-information {
+        gap: 16px;
+    }
+
+    footer {
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        padding: 0px calc(50% - 384px);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .header .burgermenu {
+        display: unset;
+    }
+    .header {
+        height: 128px;
+    }
+
+    .nav-bar {
+        display: none;
+    }
+
+    article {
+        position: relative;
+    }
+
+    .basket-styling-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 300px;
+        width: 27%;
+        max-width: 400px;
+        height: 100%;
+    }
+
+    .basket {
+        display: flex;
+        position: sticky;
+        top: 30px;
+        left: 100%;
+        bottom: 40%;
+        margin: 32px 0px;
+        max-width: 400px;
+        height: 700px;
+        border-top-left-radius: 32px;
+        border-bottom-left-radius: 32px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .header {
+        padding: 0px max(80px, calc(50% - 720px));
+    }
+
+    footer {
+        padding: 60px max(80px, calc(50% - 720px));
+    }
+
+    main {
+        padding: 0 max(80px, calc(50% - 720px));
+    }
 }

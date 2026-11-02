@@ -16,7 +16,8 @@
     <script src="./scripts/script.js"></script>
 </head>
 
-<body onload="getFromLocalStorage(), renderMenu()" onresize="changeBasketHeight()">
+<body id="body" onload="getFromLocalStorage(), renderMenu(), adaptAttributesDependingOnScreenSize(), renderBasket()"
+    onresize="changeBasketHeight(), adaptAttributesDependingOnScreenSize()">
     <header class="header">
         <div class="company-logo-wrapper">
             <img src="./assets/icons/favicon_white.svg" alt="Company logo">
@@ -44,42 +45,12 @@
         </section>
         <article id="menu">
         </article>
-        <section hidden id="mobileBasket" class="basket">
-            <button onclick="toogleBasket()" class="close-btn"><img src="./assets/icons/close.svg"
-                    alt="close icon"></button>
-            <h2>Your Basket</h2>
-            <div class="basket-styling-container">
-                <div id="emptyBasketStyling" class="empty-basket-styling">
-                    <p>Nothing here yet. <br> Go ahead and choose something delicious!</p>
-                    <img src="./assets/icons/shopping_cart_beige.svg" alt="shopping cart icon">
-                </div>
-                <ul id="listOfBasketArticles" class="list-of-basket-articles">
-                </ul>
-                <table id="pricingTable" class="pricing-table">
-                    <tbody>
-                        <tr>
-                            <td class="position-text">Subtotal</td>
-                            <td id="subtotalSum" class="price-text">23.10€</td>
-                        </tr>
-                        <tr>
-                            <td class="position-text">Delivery fee</td>
-                            <td id="deliveryFee" class="price-text">4.90€</td>
-                        </tr>
-                        <tr>
-                            <td class="position-text table-total">Total</td>
-                            <td id="totalSum" class="price-text table-total"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <button id="basketBuyButton" class="basket-btn" onclick="openDialog(), resetQuantityForAllElements()">Buy now</button>
-        </section>
         <dialog id="orderConfirmation" class="order-confirmation" closedby="any">
-           <button onclick="closeDialog()" class="close-btn"><img src="./assets/icons/close.svg"
-                    alt="close icon"></button> 
-                    <img src="./assets/img/food_truck.png" alt="orange food truck with an burgerlogo on it">
-                    <p class="order-confirmation-bold-text">Order confirmed!</p>
-                    <p>Your food is on the way!</p>
+            <button onclick="closeDialog()" class="close-btn"><img src="./assets/icons/close.svg"
+                    alt="close icon"></button>
+            <img src="./assets/img/food_truck.png" alt="orange food truck with an burgerlogo on it">
+            <p class="order-confirmation-bold-text">Order confirmed!</p>
+            <p>Your food is on the way!</p>
         </dialog>
     </main>
     <footer>
@@ -94,9 +65,9 @@
         <ul>
             <li><a href="./index.html" class="nav-link home-link"></a></li>
             <li><a href="" class="nav-link person-link">
-            </a></li>
+                </a></li>
             <li><a href="" class="nav-link app-link"></a></li>
-            <li><button onclick="toogleBasket()" id="basketBtn" class="nav-basket-btn nav-link">
+            <li><button onclick="toggleBasket()" id="basketBtn" class="nav-basket-btn nav-link">
                     <p class="amount-in-basket" id="amountInBasket"></p>
                 </button></li>
         </ul>
