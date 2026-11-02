@@ -366,7 +366,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-        .basket-styling-wrapper {
+    .basket-styling-wrapper {
         position: absolute;
         top: 0;
         right: 0;
@@ -388,5 +388,11 @@
         height: auto;
         border-top-left-radius: 32px;
         border-bottom-left-radius: 32px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .dish-category-header {
+        padding-left: 96px;
     }
 }
