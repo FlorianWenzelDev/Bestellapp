@@ -31,7 +31,7 @@ let menu = [
     {
         "dishImg": "chicken_burger.jpg",
         "dishImgAlt": "a white burger bun filled with vegtables and a piece of crispy chicken",
-        "dishName": "Blg chicken burger",
+        "dishName": "Big chicken burger",
         "dishIngredients": "Chicken, Cheese, Tomatoes, Lettuce, Onion, Bell pepper",
         "dishPrice": 15.7,
         "dishBasketQuantity": 0,
