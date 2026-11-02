@@ -3,7 +3,7 @@ let data = {
 };
 
 function saveToLocalStorage() {
-  localStorage.setItem("menu", JSON.stringify(menu));
+  localStorage.setItem("menu", JSON.stringify(data.currentMenu));
 }
 
 function getFromLocalStorage() {
@@ -11,8 +11,8 @@ function getFromLocalStorage() {
   if (storageData !== null) {
     data.currentMenu = storageData;
   } else {
-    saveToLocalStorage();
     data.currentMenu = menu;
+    saveToLocalStorage();
   }
 }
 
@@ -95,11 +95,13 @@ function toggleBasket() {
 function changeArticleQuantity(categoryIndex, dishIndex, countDirection) {
   data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity += countDirection;
   renderBasket();
+  saveToLocalStorage();
 }
 
 function changeArticleQuantityToZero(categoryIndex, dishIndex) {
   data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity = 0;
   renderBasket();
+  saveToLocalStorage();
 }
 
 function renderBasket() {
@@ -245,4 +247,5 @@ function resetQuantityForAllElements() {
   }
   renderMenu();
   renderBasket();
+  saveToLocalStorage();
 }
