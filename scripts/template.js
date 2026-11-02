@@ -18,7 +18,7 @@ function getDish(categoryIndex, dishIndex, btnText) {
   return `    <li>
                 <section class="dish-card">
                     <div class="dish-card-image-wrapper">
-                        <img src="./assets/img/${data.currentMenu[categoryIndex].dishes[dishIndex].dishImg}" alt="${data.currentMenu[categoryIndex].dishes[dishIndex].dishImgAlt}">
+                        <img src="./assets/img/${data.currentMenu[categoryIndex].dishes[dishIndex].dishImg}" alt="${data.currentMenu[categoryIndex].dishes[dishIndex].dishImgAlt}" aria-label="${data.currentMenu[categoryIndex].dishes[dishIndex].dishImgAlt}">
                     </div>
                     <div class="dish-content-styling-container">
                     <div class="dish-information-wrapper">
@@ -27,7 +27,7 @@ function getDish(categoryIndex, dishIndex, btnText) {
                     </div>
                     <div class="dish-card-purchase-wrapper">
                         <p class="dish-card-price">${data.currentMenu[categoryIndex].dishes[dishIndex].dishPrice.toFixed(2)}€</p>
-                        <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1), renderDishElementOnChange(${categoryIndex}, ${dishIndex})" 
+                        <button aria-label="reduce article quantity in basket by 1" onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1), renderDishElementOnChange(${categoryIndex}, ${dishIndex})" 
                         class="dish-card-btn ${data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity > 0 ? 'highlight-btn-text' : ""}">${btnText}</button>
                     </div>
                     </div>
@@ -40,14 +40,14 @@ function getBasketArticle(categoryIndex, dishIndex, dishSum, isHiddenOnQuantityO
 return `<li class="basket-article" onclick="renderDishElementOnChange(${categoryIndex}, ${dishIndex})">
             <div class="basket-article-styling-container">
                 <p>${data.currentMenu[categoryIndex].dishes[dishIndex].dishName}</p>
-                <button onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})" ${isHiddenOnQuantityOne ? 'hidden' : ""} class="delete-btn"></button>
+                <button aria-label="remove article from basket" onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})" ${isHiddenOnQuantityOne ? 'hidden' : ""} class="delete-btn"></button>
             </div>
             <div class="basket-article-styling-container">
                 <div class="article-quantity-menu">
-                    <button onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})" ${isHiddenOnQuantityOne ? "" : 'hidden'} class="delete-btn"></button>
-                    <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, -1)" ${isHiddenOnQuantityOne ? 'hidden' : ""}><p>-</p></button>
+                    <button aria-label="remove article from basket" onclick="changeArticleQuantityToZero(${categoryIndex}, ${dishIndex})" ${isHiddenOnQuantityOne ? "" : 'hidden'} class="delete-btn"></button>
+                    <button aria-label="reduce article quantity in basket by 1" onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, -1)" ${isHiddenOnQuantityOne ? 'hidden' : ""}><p>-</p></button>
                     <p class="article-quantity">${data.currentMenu[categoryIndex].dishes[dishIndex].dishBasketQuantity}</p>
-                    <button onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1)"><p>+</p></button>
+                    <button aria-label="increase article quantity in basket by 1" onclick="changeArticleQuantity(${categoryIndex}, ${dishIndex}, +1)"><p>+</p></button>
                 </div>
                 <p class="article-sum">${dishSum.toFixed(2)}€</p>
             </div>
@@ -56,7 +56,7 @@ return `<li class="basket-article" onclick="renderDishElementOnChange(${category
 
 function getBasket() {
     return `<div class="basket-styling-wrapper"><section ${document.body.offsetWidth >= 1024 ? "" : 'hidden'} id="mobileBasket" class="basket">
-            <button onclick="toggleBasket()" class="close-btn"><img src="./assets/icons/close.svg"
+            <button aria-label="close basket" onclick="toggleBasket()" class="close-btn" id="basketCloseBtn"><img src="./assets/icons/close.svg"
                     alt="close icon"></button>
             <h2>Your Basket</h2>
             <div class="basket-styling-container">
@@ -83,7 +83,7 @@ function getBasket() {
                     </tbody>
                 </table>
             </div>
-            <button id="basketBuyButton" class="basket-btn" onclick="openDialog(), resetQuantityForAllElements()">Buy
+            <button aria-label="send order" aria-haspopup="dialog" aria-controls="order-confirmation" id="basketBuyButton" class="basket-btn" onclick="openDialog(), resetQuantityForAllElements()">Buy
                 now</button>
         </section></div>`
 }

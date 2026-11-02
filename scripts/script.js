@@ -82,9 +82,11 @@ function getBtnTextDependingOnQuanityInBasket(categoryIndex, dishIndex) {
 
 function toggleBasket() {
   let basketRef = document.getElementById("mobileBasket");
+  let basketCloseBtnRef = document.getElementById("basketCloseBtn")
   basketRef.hidden = !basketRef.hidden;
   if (!basketRef.hidden){
     basketRef.classList.add("openend");
+    basketCloseBtnRef.focus();
   }
   else{
     basketRef.classList.remove("openend");
