@@ -179,37 +179,37 @@ footer a {
 .nav-basket-btn {
     position: relative;
     border: 0px solid var(--primary-color-nav-bar);
-    background-image: url(../assets/icons/shopping_cart_white.svg);
+    background-image: url(./assets/icons/shopping_cart_white.svg);
     background-color: var(--primary-color-nav-bar);
 }
 
 .home-link {
-    background-image: url(../assets/icons/home_white.svg);
+    background-image: url(./assets/icons/home_white.svg);
 }
 
 .home-link:hover {
-    background-image: url(../assets/icons/home_orange.svg);
+    background-image: url(./assets/icons/home_orange.svg);
 }
 
 .person-link {
-    background-image: url(../assets/icons/person.svg);
+    background-image: url(./assets/icons/person.svg);
 }
 
 .person-link:hover {
-    background-image: url(../assets/icons/person_orange.svg);
+    background-image: url(./assets/icons/person_orange.svg);
 }
 
 .app-link {
-    background-image: url(../assets/icons/favicon_white.svg);
+    background-image: url(./assets/icons/favicon_white.svg);
 }
 
 .app-link:hover {
-    background-image: url(../assets/icons/favicon_orange.svg);
+    background-image: url(./assets/icons/favicon_orange.svg);
 }
 
 .nav-basket-btn:hover,
 .nav-basket-btn.articles-in-basket {
-    background-image: url(../assets/icons/shopping_cart.svg);
+    background-image: url(./assets/icons/shopping_cart.svg);
 }
 
 .amount-in-basket {
