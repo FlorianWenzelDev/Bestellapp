@@ -306,7 +306,9 @@ footer a {
         padding: 0px calc(16px + calc(50% - 720px));
     }
 
-    .herosection,
+    .herosection{
+        padding: 0px calc(50% - 720px);
+    }
     .restaurant-information {
         padding: 24px calc(50% - 720px);
     }
