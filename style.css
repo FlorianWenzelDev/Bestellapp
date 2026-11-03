@@ -259,6 +259,14 @@ footer a {
         gap: 16px;
     }
 
+    .dishes-of-category {
+        align-items: center;
+    }
+
+    .dish-card{
+        width: 700px;
+    }
+
     footer {
         flex-direction: row-reverse;
         justify-content: space-around;
@@ -282,10 +290,13 @@ footer a {
         position: relative;
     }
 
+    .dishes-of-category {
+        align-items: unset;
+    }
 }
 
-@media screen and (min-width:1200px) {
-    .dishes-of-category{
+@media screen and (min-width: 1200px) {
+    .dishes-of-category {
         padding-left: 64px;
     }
 }
@@ -295,8 +306,13 @@ footer a {
         padding: 0px calc(16px + calc(50% - 720px));
     }
 
-    .herosection, .restaurant-information, .dishes-of-category{
-        padding: 0 calc(50% - 720px);
+    .herosection,
+    .restaurant-information {
+        padding: 24px calc(50% - 720px);
     }
 
+    .dishes-of-category {
+        padding-left: calc(64px + 50% - 720px);
+        padding-right: calc(50% - 720px);
+    }
 }

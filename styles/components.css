@@ -370,7 +370,7 @@
     .basket-styling-wrapper {
         position: absolute;
         top: 0;
-        right: 100px;
+        right: 0;
         min-width: 300px;
         width: 27%;
         max-width: 400px;
@@ -399,8 +399,11 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .basket-styling-wrapper{
-        /* left: calc(100% - calc(50% - 720px)); */
+    .basket-styling-wrapper {
         right: calc(50% - 720px);
+    }
+
+    .dish-category-header {
+        padding-left: calc(96px + calc(50% - 720px));
     }
 }
