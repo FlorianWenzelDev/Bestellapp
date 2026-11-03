@@ -16,8 +16,8 @@
     <script src="./script.js"></script>
 </head>
 
-<body id="body" onload="getFromLocalStorage(), renderMenu(), adaptAttributesDependingOnScreenSize(), renderBasket()"
-    onresize="changeBasketHeight(), adaptAttributesDependingOnScreenSize()">
+<body id="body" onload="init()"
+    onresize="onSiteResize()">
     <header class="header">
         <div class="company-logo-wrapper">
             <img src="./assets/icons/favicon_white.svg" alt="Company logo">

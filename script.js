@@ -16,7 +16,17 @@ function getFromLocalStorage() {
   }
 }
 
-// Menu
+function init() {
+  getFromLocalStorage();
+  renderMenu();
+  adaptAttributesDependingOnScreenSize();
+  renderBasket();
+}
+
+function onSiteResize() {
+  changeBasketHeight();
+  adaptAttributesDependingOnScreenSize();
+}
 
 function renderMenu() {
   let restaurantSite = document.getElementById("menu");
@@ -77,8 +87,6 @@ function getBtnTextDependingOnQuanityInBasket(categoryIndex, dishIndex) {
     return "Add to basket";
   }
 }
-
-//Basket
 
 function toggleBasket() {
   let basketRef = document.getElementById("mobileBasket");
@@ -228,8 +236,6 @@ function adaptAttributesDependingOnScreenSize() {
     basketRef.hidden = true;
   }
 }
-
-// Order confirmation
 
 function openDialog() {
   let dialogRef = document.getElementById("orderConfirmation");
