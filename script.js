@@ -225,11 +225,11 @@ function getQuantityInBasket() {
 
 function adaptAttributesDependingOnScreenSize() {
   let basketRef = document.getElementById("mobileBasket");
-  if (body.offsetWidth >= 1024) {
+  if (window.innerWidth >= 1024) {
     basketRef.hidden = false;
     basketRef.classList.remove("openend");
   }
-  else if (body.offsetWidth < 1024 && basketRef.hidden === false && basketRef.classList.contains("openend")){
+  else if (window.innerWidth < 1024 && basketRef.hidden === false && basketRef.classList.contains("openend")){
     basketRef.hidden = false;
   }
   else{

@@ -42,16 +42,14 @@ main {
     border-radius: 16px;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+
+    background-image: url(./assets/img/hero.jpg);
+    background-position: 20% 100%;
+    background-repeat: no-repeat;
+    background-size: auto calc(100% * 1.5);
+    
 }
 
-.herosection .hero-img {
-    height: 100%;
-    object-fit: cover;
-    object-position: 20% 20%;
-    transform-origin: 20% 100%;
-    scale: 1.5;
-}
 
 .herosection img {
     width: 100%;
@@ -247,6 +245,8 @@ footer a {
     .hero-img-wrapper {
         height: 500px;
         border-radius: 0px;
+        background-size: unset;
+        background-position: center;
     }
 
     .restaurant-information-styling-container {
@@ -263,8 +263,8 @@ footer a {
         align-items: center;
     }
 
-    .dish-card{
-        width: 700px;
+    .dish-card {
+        width: 680px;
     }
 
     footer {
@@ -303,18 +303,18 @@ footer a {
 
 @media screen and (min-width: 1440px) {
     .header {
-        padding: 0px calc(16px + calc(50% - 720px));
+        padding: 0px max(16px, calc(16px + calc(50% - 720px)));
     }
 
-    .herosection{
+    .herosection {
         padding: 0px calc(50% - 720px);
     }
     .restaurant-information {
-        padding: 24px calc(50% - 720px);
+        padding: 0px calc(50% - 720px);
     }
 
     .dishes-of-category {
-        padding-left: calc(64px + 50% - 720px);
+        padding-left: max(64px, calc(64px + (50% - 720px)));
         padding-right: calc(50% - 720px);
     }
 }
