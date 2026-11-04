@@ -24,8 +24,8 @@ function init() {
 }
 
 function onSiteResize() {
-  changeBasketHeight();
   adaptAttributesDependingOnScreenSize();
+  changeBasketHeight();
 }
 
 function renderMenu() {
