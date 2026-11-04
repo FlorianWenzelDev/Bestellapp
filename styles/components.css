@@ -38,14 +38,13 @@
 .dish-card-image-wrapper {
     width: 100%;
     height: 86px;
-    border-radius: 12px;
-    overflow: hidden;
 }
 
 .dish-card-image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 .dish-content-styling-container {
@@ -304,12 +303,10 @@
     align-items: center;
     gap: 8px;
     text-align: center;
-    overflow: hidden;
     overscroll-behavior: contain;
 }
 
 .order-confirmation::backdrop {
-    overflow: hidden;
     overscroll-behavior: contain;
     background-color: rgba(2, 4, 7, 0.6);
 }
@@ -383,12 +380,17 @@
         top: 30px;
         left: 100%;
         bottom: 40%;
+        right: 0;
         margin: 60px 0px;
         max-width: 400px;
         min-height: 400px;
         height: auto;
         border-top-left-radius: 32px;
         border-bottom-left-radius: 32px;
+    }
+
+    .basket .close-btn {
+        display: none;
     }
 }
 
@@ -400,10 +402,10 @@
 
 @media screen and (min-width: 1440px) {
     .basket-styling-wrapper {
-        right: calc(50% - 720px);
+        right: max(0px, calc(50% - 720px));
     }
 
     .dish-category-header {
-        padding-left: calc(96px + calc(50% - 720px));
+        padding-left: max(96px, calc(96px + calc(50% - 720px)));
     }
 }
